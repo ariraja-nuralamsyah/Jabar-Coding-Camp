@@ -1,0 +1,10 @@
+Pengalaman programming saya dimulai ketika waktu SMK, saya SMK di SMK Negeri 11 Bandung
+disana saya awalnya mempelajari bahasa HTML dan CSS, dan pertama kali membuat website untuk SD menggunakan HTML dan CSS
+lalu setelahnya saya mempelajari bahasa PHP dan Java desktop menggunakan aplikasi Netbean, disaat kelas 11 saya pkl di PT Edu Sinergi
+dan disaat pkl saya menggunakan bahasa PHP dengan framework CodeIgniter dan lumen laravel, untuk database yang dipelajari saat saya SMK, 
+saya mempelajari SQL dengan menggunakan MySQL dan Navicat, 
+
+Pengalaman Programming saya berlanjut disaat saya kuliah, pada saat kuliah saya mengembangkan bahasa HTML CSS dan PHP saya,
+dan menambahkan bahasa baru seperti Python, Java Android, C, dan untuk database menggunakan Oracle. Sekarang saya sedang
+menjalani KP/PKL di PT Neural Technologies Indonesia dan menggunakan bahasa ReactJS dengan library ANT Design dan Amchart,
+dan juga saya menggunakan bahasa PHP dengan framework CodeIgniter, dengan database menggunakan PostgreSQL.
