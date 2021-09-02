@@ -2,7 +2,7 @@
 console.log();
 console.log("Soal 1");
 
-var nilai=75;
+var nilai="aa";
 
 if(nilai >= 85){
 	console.log("indeksnya A");
@@ -12,8 +12,10 @@ if(nilai >= 85){
 	console.log("indeksnya C");
 }else if(nilai >= 55 && nilai < 65){
 	console.log("indeksnya D");
-}else{
+}else if(nilai < 55){
 	console.log("indeksnya E");
+}else{
+	console.log("Inputan harus berupa angka");
 }
 
 // Soal 2
