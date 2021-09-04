@@ -73,45 +73,45 @@ function next_date(tanggal, bulan, tahun){
 
 	switch(bulan){
 		case 1 : 
-			{ console.log(tanggal+" Januari "+tahun); break; 
-		}
-		case 2 : 
-			{ console.log(tanggal+" Februari "+tahun); break; 
-		}
-		case 3 : 
-			{ console.log(tanggal+" Maret "+tahun); break; 
-		}
-		case 4 : 
-			{ console.log(tanggal+" April "+tahun); break; 
-		}
-		case 5 : 
-			{ console.log(tanggal+" Mei "+tahun); break; 
-		}
-		case 6 : 
-			{ console.log(tanggal+" Juni "+tahun); break; 
-		}
-		case 7 : 
-			{ console.log(tanggal+" Juli "+tahun); break; 
-		}
-		case 8 : 
-			{ console.log(tanggal+" Agustus "+tahun); break; 
-		}
-		case 9 : 
-			{ console.log(tanggal+" September "+tahun); break; 
-		}
-		case 10 : 
-			{ console.log(tanggal+" Oktober "+tahun); break; 
-		}
-		case 11 : 
-			{ console.log(tanggal+" November "+tahun); break; 
-		} 
-		case 12 : 
-			{ console.log(tanggal+" Desember "+tahun); break; 
-		}
-		default : 
-			{ console.log("Inputan bulan tidak benar"); break; 
-		}
+		{ console.log(tanggal+" Januari "+tahun); break; 
 	}
+	case 2 : 
+	{ console.log(tanggal+" Februari "+tahun); break; 
+}
+case 3 : 
+{ console.log(tanggal+" Maret "+tahun); break; 
+}
+case 4 : 
+{ console.log(tanggal+" April "+tahun); break; 
+}
+case 5 : 
+{ console.log(tanggal+" Mei "+tahun); break; 
+}
+case 6 : 
+{ console.log(tanggal+" Juni "+tahun); break; 
+}
+case 7 : 
+{ console.log(tanggal+" Juli "+tahun); break; 
+}
+case 8 : 
+{ console.log(tanggal+" Agustus "+tahun); break; 
+}
+case 9 : 
+{ console.log(tanggal+" September "+tahun); break; 
+}
+case 10 : 
+{ console.log(tanggal+" Oktober "+tahun); break; 
+}
+case 11 : 
+{ console.log(tanggal+" November "+tahun); break; 
+} 
+case 12 : 
+{ console.log(tanggal+" Desember "+tahun); break; 
+}
+default : 
+{ console.log("Inputan bulan tidak benar"); break; 
+}
+}
 }
 
 var tanggal = 31;
@@ -122,5 +122,50 @@ next_date(tanggal, bulan, tahun);
 
 console.log();
 
+
+// Soal 2
+
+console.log("Soal 2");
+console.log();
+
+function jumlah_kata(kalimat){
+	var huruf;
+	var nextHuruf;
+	var jumlah = 0;
+	var i = 0;
+	while(jumlah != 1){
+		if(i == kalimat.length){
+			return console.log("Kalimat kosong");
+		}
+		huruf = kalimat.substr(i,1);
+		if(huruf == " "){
+			jumlah = 0;
+		}else{
+			jumlah = 1;
+		}
+		i++;
+	}
+	for(var i = 0; i < kalimat.length ; i++){
+		huruf = kalimat.substr(i,1);
+		if(i != kalimat.length - 1){
+			nextHuruf = kalimat.substr(i+1,1);
+			if(huruf == " " && (nextHuruf != " ")){
+				jumlah++;
+			}
+		}
+
+	}
+	return console.log(jumlah);
+}
+
+var kalimat_1 = "Halo nama saya Muhammad Iqbal Mubarok";
+var kalimat_2 = "Saya Iqbal"
+var kalimat_3 = " ";
+
+jumlah_kata(kalimat_1);
+jumlah_kata(kalimat_2);
+jumlah_kata(kalimat_3);
+
+console.log();
 
 
