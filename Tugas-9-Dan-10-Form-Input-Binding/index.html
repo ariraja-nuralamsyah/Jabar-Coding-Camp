@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Aplikasi Vue</title>
+  <!-- Menyisipkan Vuejs dari CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+  <div id="app">
+    <form>
+      <input type="text" placeholder="ketikan kata kunci" v-model:value="searchBooks" />
+    </form>
+    <ul>
+        <li v-for="item in booklists">
+            <b>{{ item.book }}</b>
+        </li>
+    </ul>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        searchBooks: "",
+        books : [
+          {book : 'Kalkulus Dasar'},
+          {book : 'Fisika Dasar'},  
+          {book : 'Aljabar Linier Elementer'},
+          {book : 'Aljabar Abstrak'},
+          {book : 'Algoritma Pemrograman'}
+        ]
+      },
+      computed: {
+        booklists : {
+          get(){
+            return this.books.filter(obj => Object.keys(obj).some(key => obj[key].toLowerCase().includes(this.searchBooks.toLowerCase())));
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
