@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quiz 2 VueJS</title>
+  <!-- Menyisipkan Vuejs dari CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+
+  <!-- elemen kontainer untuk aplikasi -->
+  <div id="app">
+    <h2>Daftar Nama:</h2>
+    <input type="text" placeholder="tambah nama" v-model:value="newName" />
+    <button @click="addName" v-if="update != true">Add</button>
+    <button @click="updateName" v-else>Update</button>
+    <ul>
+        <li v-for="(item,index) in users" :key="item.name">
+            <b>{{ item.name }}</b> <button @click="editName(index)">Edit</button> || <button @click="deleteName(index)">Delete</button>
+        </li>
+    </ul>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        update: false,
+        indexSelected: "",
+        newName: "",
+        users: [
+            {'name': "Muhammad Iqbal Mubarok"},
+            {'name': "Ruby Purwanti"},
+            {'name': "Faqih Muhammad"},
+        ]
+      },
+      methods: {
+          addName: function(){
+            if (this.newName.replace(/\s/g, '').length) {
+              this.users.push({'name': this.newName});
+              this.newName = "";
+            }else{
+              alert("Inputan tidak boleh kosong");
+            }
+          },
+          editName: function(index){
+              this.update = true;
+              this.newName = this.users[index].name;
+              this.indexSelected = index;
+          },
+          deleteName: function(index){
+              if(confirm("Anda Yakin ?")){
+                  this.users.splice(index,1);
+              }
+          },
+          updateName: function(){
+              this.users[this.indexSelected].name = this.newName;
+              this.update = false;
+          },
+      }
+    })
+  </script>
+</body>
+
+</html>
