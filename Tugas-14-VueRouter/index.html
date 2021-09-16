@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS Tugas 14 VueRouter</title>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/">Home</router-link>
+        <router-link to="/halaman2">Movies</router-link>        
+        <router-link to="/halaman3">Administrator</router-link>        
+        <hr>
+        <router-view></router-view>
+    </div>
+    
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module">
+        import { MoviesComponent } from './MoviesComponent.js'
+        import { AdminComponent } from './AdminComponent.js'
+        // Kita membuat 2 component , yaitu Home dan Admin
+        const Home = { template: '<div>Ini Halaman Home</div>' }
+        
+        // Kemudian kita arahkan setiap route ke component yang kita inginkan
+        const routes = [
+            { path: '/', component: Home, alias: '/halaman1' },
+            { path: '/halaman2', component: MoviesComponent, meta: { login: true } },
+            { path: '/halaman3', component: AdminComponent, meta: { login: true, role: true } },
+        ]
+        
+        //Kemudian kita instansiasi object Vue Router dan tambahkan routes yang sudah kita buat tadi
+        const router = new VueRouter({
+            routes 
+        })
+
+        router.beforeEach((to, from, next) => {
+            if(to.matched.some(record => record.meta.login)){ // Pengecekan apakah harus menggunakan login
+                let auth = false // Set auth true jika sudah login
+                let role = "user" // set role ketika sudah login
+                if(!auth){
+                    alert("Halaman ini hanya untuk user yang sudah login!")
+                    next(false)
+                }else{
+                    if(to.matched.some(record => record.meta.role)){ // Pengecekan apakah harus menggunakan role
+                        if(!(role == "Admin")){
+                            alert("Halaman ini hanya untuk user dengan role Admin!")
+                            next(false)
+                        }else{
+                            next()
+                            alert("Berhasil Masuk Sebagai Admin")
+                        }   
+                    }else{  
+                        next()
+                        alert("Berhasil Masuk")
+                    }
+                }
+            }else{
+                next()
+            }
+        })
+        
+        //Kemudian kita tambahkan object VueRouter yang kita namakan router ke object Vue
+        
+        var vm = new Vue({ 
+            el: '#app', 
+            router, 
+        })
+    </script>
+</body>
+</html>
