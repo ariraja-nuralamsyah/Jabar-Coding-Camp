@@ -19,26 +19,31 @@
 import BlogItemComponent from '../components/BlogItemComponent.vue';
 export default {
   data: () => ({
-    apiDomain: 'http://demo-api-vue.sanbercloud.com',
+    apiDomain: 'https://demo-api-vue.sanbercloud.com',
     blogs: [],
   }),
   components:{
     'blog-item-component': BlogItemComponent
   },
-  created(){
-    const config = {
-      method: 'get',
-      url: `${this.apiDomain}/api/v2/blog/random/4`
-    }
+  methods: {
+    go(){
+      const config = {
+        method: 'get',
+        url: `${this.apiDomain}/api/v2/blog/random/4`
+      }
 
-    this.axios(config)
-      .then(response => {
-        let { blogs } = response.data;
-        this.blogs = blogs;
-      })
-      .catch(error => {
-        console.log(error);
-      })
+      this.axios(config)
+        .then(response => {
+          let { blogs } = response.data;
+          this.blogs = blogs;
+        })
+        .catch(error => {
+          console.log(error);
+        })
+    }
+  },
+  created(){
+    this.go()
   }
 }
 </script>

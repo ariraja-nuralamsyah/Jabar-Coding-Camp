@@ -27,7 +27,7 @@
 export default {
     data: () => ({
         blog: {},
-        apiDomain: 'http://demo-api-vue.sanbercloud.com',
+        apiDomain: 'https://demo-api-vue.sanbercloud.com',
     }),
     methods:{
         go(){

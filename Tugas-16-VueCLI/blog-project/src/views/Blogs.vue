@@ -25,7 +25,7 @@
 import BlogItemComponent from '../components/BlogItemComponent.vue';
 export default {
     data: () => ({
-        apiDomain: "http://demo-api-vue.sanbercloud.com",
+        apiDomain: "https://demo-api-vue.sanbercloud.com",
         blogs: [],
         page: 0,
         lengthPage: 0,
